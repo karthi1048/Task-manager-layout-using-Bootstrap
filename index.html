@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Task Manager layout</title>
+</head>
+<body>
+    <header>
+
+        <!-- Navbar -->
+        <nav class="navbar navbar-dark bg-dark navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="#">Task Manager</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link active" href="#">Dashboard</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Tasks</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Report</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Breadcrumb : navigation path -->
+        <nav class="m-3">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                <li class="breadcrumb-item active">Tasks</li>
+            </ol>
+        </nav>
+
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- Button -->
+            <button class="btn btn-dark btn-sm" type="button" data-bs-toggle="modal" data-bs-target="#addTaskModal">Add Task</button>
+
+            <!-- Cards -->
+            <div class="card mt-3">
+                <div class="card-header">
+                    Task list
+                </div>
+                <div class="card-body">
+                    <!-- List group -->
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item active d-flex justify-content-between align-items-center">
+                            Task 1
+                            <!-- Badges -->
+                            <span class="badge bg-dark rounded-pill">New</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            Task 2
+                            <span class="badge bg-warning rounded-pill">In progress</span>
+                        </li>
+                        <li class="list-group-item">Task 3</li>
+                    </ul>
+                </div>
+                <!-- Modal -->
+                <div class="modal fade" id="addTaskModal">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Add Task</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="">
+                                    <div class="mb-2"> 
+                                        <label for="tName" class="form-label">Task Name</label>
+                                        <input id="tName" class="form-control" type="text" placeholder="Enter the name">
+                                    </div>
+                                    <div class="mb-2">
+                                        <label for="tDes" class="form-label">Description</label>
+                                        <textarea id="tDes" class="form-control" type="text" placeholder="Enter the description"></textarea>
+                                    </div>
+                                    <div class="mb-2">
+                                        <label for="tStatus" class="form-label">Task status</label>
+                                        <select id="tStatus" class="form-select">
+                                            <option selected>New</option>
+                                            <option>In progress</option>
+                                            <option>Cancelled</option>
+                                            <option>Completed</option>
+                                        </select>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-dark btn-sm">Save task</button>
+                                <button class="btn btn-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dropdown -->
+            <div class="dropdown mt-3">
+                <button type="button" class="btn btn-sm btn-secondary dropdown-toggle" data-bs-toggle="dropdown">Actions</button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Edit Task</a></li>
+                    <li><a class="dropdown-item" href="#">Delete Task</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Mark as Completed</a></li>
+                </ul>
+            </div>
+
+            <!-- Nav & Tabs -->
+            <ul class="nav nav-tabs mt-3">
+                <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#allT">All Tasks</button></li>
+                <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#comT">Completed Tasks</button></li>
+                <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#penT">Pending Tasks</button></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane show fade active" id="allT">
+                    <p>All the tasks will be displayed here.</p>
+                </div>
+                <div class="tab-pane fade" id="comT">
+                    <p>Completed tasks will be displayed here.</p>
+                </div>
+                <div class="tab-pane fade" id="penT">
+                    <p>Pending tasks will be displayed here.</p>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <nav>
+                <ul class="pagination mt-3 justify-content-center">
+                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                    <li class="page-item"><a class="page-link active" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link disabled" href="#">Next</a></li>
+                </ul>
+            </nav>
+
+            <!-- Tooltip -->
+            <button class="btn btn-secondary mt-3 btn-sm" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-title="Navigate to documents page">Go to Documents</button>
+
+            <!-- popover -->
+            <button type="button" class="btn btn-danger mt-3 btn-sm" data-bs-toggle="popover" data-bs-title="Task Update" data-bs-content="Changes must be saved to ensure to update the current task">Unsaved changes</button>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+</html>
