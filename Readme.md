@@ -25,6 +25,7 @@ This repository showcases a responsive task manager layout built using **HTML**,
 3. Ensure you have an active internet connection for the Bootstrap CDN.
 
 ## Screenshot
+<img src="task-manager-1.png" alt="Task manager layout">
 
 ## Contribution
 Contributions are welcome! If you have ideas for improvements or new features, feel free to fork the repository and create a pull request.
